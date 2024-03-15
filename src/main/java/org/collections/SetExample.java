@@ -40,38 +40,34 @@ public class SetExample {
 //        System.out.println("\nsize: " + hashSet.size());
 
 
-
-//        List<Person> persons = new ArrayList<>();
-//        persons.add(new Person("Cristina", 20));
-//        persons.add(new Person("Boris", 21));
-//        persons.add(new Person("Anna", 22));
-//        persons.add(new Person("Anna", 23));
-//        persons.add(new Person("Anna", 19));
-//        System.out.println("persons: " + persons);
-//
-//        Collections.sort(persons, new PersonComparator());
-//        System.out.println("sorted persons: " + persons);
-
 //        Set<Person> treeSet = new TreeSet<>(new PersonComparator());
-        Set<Person> treeSet = new TreeSet<>(new Comparator<Person>() {
-            @Override
-            public int compare(Person p1, Person p2) {
-                int nameCompare = p1.getName().compareTo(p2.getName());
-                if (nameCompare == 0) {
-                    return Integer.compare(p1.getAge(), p2.getAge());
-                }
-                return nameCompare;
-            }
-        });
+//        Set<Person> treeSet = new TreeSet<>(new Comparator<Person>() {
+//            @Override
+//            public int compare(Person p1, Person p2) {
+//                return p1.getName().compareTo(p2.getName());
+//            }
+//        });
 
-        treeSet.add(new Person("Cristina", 20));
-        treeSet.add(new Person("Boris", 21));
-        treeSet.add(new Person("Anna", 22));
-        treeSet.add(new Person("Anna", 20));
-        treeSet.add(new Person("Anna", 19));
-
-        System.out.println("treeSet: " + treeSet);
+//        Set<Person> treeSet = new TreeSet<>((Person p1, Person p2) -> {return p1.getName().compareTo(p2.getName());});
+//
+//        treeSet.add(new Person("Cristina", 20));
+//        treeSet.add(new Person("Boris", 21));
+//        treeSet.add(new Person("Anna", 22));
+//        treeSet.add(new Person("Anna", 20));
+//        treeSet.add(new Person("Anna", 19));
+//
+//        System.out.println("treeSet: " + treeSet);
 
 
+        List<Person> persons = new ArrayList<>();
+        persons.add(new Person("Cristina", 20));
+        persons.add(new Person("Boris", 21));
+        persons.add(new Person("Anna", 22));
+        persons.add(new Person("Anna", 23));
+        persons.add(new Person("Anna", 19));
+        System.out.println("persons: " + persons);
+
+        Collections.sort(persons, (p1, p2) -> p2.getName().compareTo(p1.getName()));
+        System.out.println("sorted persons: " + persons);
     }
 }

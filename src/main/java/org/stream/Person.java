@@ -1,4 +1,4 @@
-package org.collections;
+package org.stream;
 
 public class Person /*implements Comparable<Person>*/ {
 

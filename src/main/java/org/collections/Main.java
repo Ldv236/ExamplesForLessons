@@ -1,5 +1,7 @@
 package org.collections;
 
+import org.exceptions.DogNotFoundException;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -30,6 +32,15 @@ public class Main {
 
         SetExample setExample = new SetExample();
         setExample.touchSet();
+
+//        doMistake(10);
+    }
+
+    static void doMistake(int requestIndex) {
+        if (requestIndex > 5) {
+            throw new DogNotFoundException(requestIndex, 0, 5);
+        }
+        System.out.println("requestIndex: " + requestIndex);
     }
 
     public static void testListPerformance(List<Integer> list) {
